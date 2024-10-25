@@ -48,7 +48,7 @@ function App() {
 
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/product/categories')
+        const { data } = await axios.get('https://amazona2-j8bw.onrender.com/api/product/categories')
         setCategories(data)
 
       } catch (error) {

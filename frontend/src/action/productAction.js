@@ -5,7 +5,7 @@ import { getError } from "../utils"
 export const handleProductList = () => async (dispatch) => {
     try {
         dispatch({ type: "PRODUCT_LOADING" })
-        const { data } = await axios.get('http://localhost:5000/api/product')
+        const { data } = await axios.get('https://amazona2-j8bw.onrender.com/api/product')
         dispatch({ type: "PRODUCT_LIST_SUCCESS", payload: data })
     } catch (error) {
         dispatch({ type: 'PRODUCT_LIST_ERROR', payload: error.response?.data?.message || error.message })
@@ -16,7 +16,7 @@ export const handleProductList = () => async (dispatch) => {
 export const HandleProductOne = (slug) => async (dispatch) => {
     try {
         dispatch({ type: "PRODUCT_LOADING" })
-        const { data } = await axios.get(`http://localhost:5000/api/product/slug/${slug}`)
+        const { data } = await axios.get(`https://amazona2-j8bw.onrender.com/api/product/slug/${slug}`)
         dispatch({ type: "PRODUCT_LIST_ONE", payload: data })
     } catch (error) {
         dispatch({ type: 'PRODUCT_LIST_ERROR', payload: error.response?.data?.message || error.message })
@@ -27,7 +27,7 @@ export const HandleProductOne = (slug) => async (dispatch) => {
 export const handlleSigninForm = (payload) => async (dispatch) => {
     try {
         dispatch({ type: "PRODUCT_LOADING" })
-        const { data } = await axios.post("http://localhost:5000/api/user/signin", payload)
+        const { data } = await axios.post("https://amazona2-j8bw.onrender.com/api/user/signin", payload)
         dispatch({ type: "USER_SIGNIN", payload: data })
     } catch (error) {
         dispatch({ type: 'PRODUCT_LIST_ERROR', payload: error.response?.data?.message || error.message })
@@ -38,7 +38,7 @@ export const handlleSigninForm = (payload) => async (dispatch) => {
 export const handlleSignUpForm = (payload) => async (dispatch) => {
     try {
         dispatch({ type: "PRODUCT_LOADING" })
-        const { data } = await axios.post("http://localhost:5000/api/user/signup", payload)
+        const { data } = await axios.post("https://amazona2-j8bw.onrender.com/api/user/signup", payload)
         dispatch({ type: "USER_SINGNUP", payload: data })
     } catch (error) {
         dispatch({ type: 'PRODUCT_LIST_ERROR', payload: error.response?.data?.message || error.message })
@@ -47,7 +47,7 @@ export const handlleSignUpForm = (payload) => async (dispatch) => {
 export const fetchOrder = (orderId, token) => async (dispatch) => {
     try {
         dispatch({ type: "PRODUCT_LOADING" })
-        const { data } = await axios.get(`http://localhost:5000/api/orders/${orderId}`,
+        const { data } = await axios.get(`https://amazona2-j8bw.onrender.com/api/orders/${orderId}`,
             {
                 headers: {
                     authorization: `Bearer ${token}`
@@ -64,7 +64,7 @@ export const fetchOrder = (orderId, token) => async (dispatch) => {
 export const OrderHistoryFatch = (token) => async (dispatch) => {
     try {
         dispatch({ type: "FETCH_LOADING" })
-        const { data } = await axios.get('http://localhost:5000/api/orders/mine',
+        const { data } = await axios.get('https://amazona2-j8bw.onrender.com/api/orders/mine',
             {
                 headers: {
                     authorization: `Bearer ${token}`
@@ -86,7 +86,7 @@ export const OrderHistoryFatch = (token) => async (dispatch) => {
 export const userProfileUpdate = (payload, token) => async (dispatch) => {
     try {
         dispatch({ type: "UPDATE_LOADING" })
-        const { data } = await axios.put('http://localhost:5000/api/user/profile', { payload },
+        const { data } = await axios.put('https://amazona2-j8bw.onrender.com/api/user/profile', { payload },
             {
                 headers: {
                     authorization: `Bearer ${token}`
@@ -104,7 +104,7 @@ export const userProfileUpdate = (payload, token) => async (dispatch) => {
 export const fetchdata = (category, page, price, query, rating, order) => async (dispatch) => {
     try {
         const { data } = await axios.get(
-            `http://localhost:5000/api/product/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+            `https://amazona2-j8bw.onrender.com/api/product/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
         )
         dispatch({ type: 'FETCH_SUCCESS', payload: data })
     } catch (error) {

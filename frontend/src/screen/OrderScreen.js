@@ -20,7 +20,7 @@ export const OrderScreen = () => {
     const { id: orderId } = params
     const { userInfo } = useSelector(state => state.user)
     const { order, card, successPay, loadingPay } = useSelector(state => state.product)
-   
+
     const [{ isPending }, paypalDispatch] = usePayPalScriptReducer()
 
     const navigate = useNavigate()
@@ -40,14 +40,14 @@ export const OrderScreen = () => {
                 return orderId
             })
     }
-    
+
     const onApprove = (data, actions) => {
-        console.log("actions",actions)
+        console.log("actions", actions)
         return actions.order.capture().then(async function (details) {
             try {
                 dispatch({ type: 'PAY_REQUEST' });
                 const { data } = await axios.put(
-                    `http://localhost:5000/api/orders/${order?._id}/pay`,
+                    `https://amazona2-j8bw.onrender.com/api/orders/${order?._id}/pay`,
                     details,
                     {
                         headers: {
@@ -61,7 +61,7 @@ export const OrderScreen = () => {
             }
         });
     };
-    
+
 
     function onError(err) {
         alert(err)
@@ -80,7 +80,7 @@ export const OrderScreen = () => {
             }
         } else {
             const loadPaypalScript = async () => {
-                const { data: clientId } = await axios.get('http://localhost:5000/api/keys/paypal', {
+                const { data: clientId } = await axios.get('https://amazona2-j8bw.onrender.com/api/keys/paypal', {
                     headers: {
                         authorization: `Bearer ${userInfo?.token}`
                     }

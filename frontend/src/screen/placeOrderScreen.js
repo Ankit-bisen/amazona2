@@ -33,7 +33,7 @@ export default function PlaceOrderScreen() {
     const placeOrderHandler = async () => {
         try {
             dispatch({ type: "PRODUCT_LOADING" })
-            const { data } = await axios.post('http://localhost:5000/api/orders',
+            const { data } = await axios.post('https://amazona2-j8bw.onrender.com/api/orders',
                 {
                     orderItem: card.cardItem,
                     shippingAddress: card.shippingAddress,

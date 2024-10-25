@@ -21,7 +21,7 @@ const CardScreen = () => {
     const { error, userInfo } = useSelector(state => state.user)
 
     const updateCardHandler = async (item, quantity) => {
-        const { data } = await axios.get(`http://localhost:5000/api/product/${item._id}`)
+        const { data } = await axios.get(`https://amazona2-j8bw.onrender.com/api/product/${item._id}`)
         if (data.countInStock < quantity) {
             window.alert('sorry . product is not of stock')
             return;
@@ -95,7 +95,7 @@ const CardScreen = () => {
                                                         <i className='fas fa-trash'></i>
                                                     </Button>
                                                 </Col>
-                                             
+
                                             </Row>
                                         </ListGroup.Item>
                                     ))

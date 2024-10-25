@@ -15,7 +15,7 @@ const Product = ({ product }) => {
 
             const existItem = card.cardItem.find((x) => x._id === product._id)
             const quantity = existItem ? existItem.quantity + 1 : 1
-            const { data } = await axios.get(`http://localhost:5000/api/product/${item._id}`)
+            const { data } = await axios.get(`https://amazona2-j8bw.onrender.com/api/product/${item._id}`)
             if (data.countInStock < quantity) {
                 window.alert('sorry . product is not of stock')
                 return;

@@ -26,7 +26,7 @@ const ProductScreen = () => {
         dispatch(HandleProductOne(slug))
         document.title = slug
         // const fetchdata = async () => {
-        //     const result = await axios.get(`http://localhost:5000/api/product/slug/${slug}`)
+        //     const result = await axios.get(`https://amazona2-j8bw.onrender.com/api/product/slug/${slug}`)
         //     setProducts(result.data)
         // }
         // fetchdata()
@@ -37,7 +37,7 @@ const ProductScreen = () => {
 
             const existItem = card.cardItem.find((x) => x._id === product._id)
             const quantity = existItem ? existItem.quantity + 1 : 1
-            const { data } = await axios.get(`http://localhost:5000/api/product/${product._id}`)
+            const { data } = await axios.get(`https://amazona2-j8bw.onrender.com/api/product/${product._id}`)
             if (data.countInStock < quantity) {
                 alert('sorry . product is not of stock')
                 return;

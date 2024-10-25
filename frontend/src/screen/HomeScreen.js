@@ -16,7 +16,7 @@ const HomeScreen = () => {
     useEffect(() => {
         dispatch(handleProductList())
         // const fetchdata = async () => {
-        //     const result = await axios.get('http://localhost:5000/api/product')
+        //     const result = await axios.get('https://amazona2-j8bw.onrender.com/api/product')
         //     setProducts(result.data)
         // }
         // fetchdata()
