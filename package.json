@@ -4,7 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "dev": "nodemon backend/index.js",
+    "build":"npm ci && cd frontend && npm ci -f && npm run build",
     "start": "node backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
